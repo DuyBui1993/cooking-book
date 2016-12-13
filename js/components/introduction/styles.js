@@ -23,7 +23,7 @@ export default StyleSheet.create({
         color: '#AE916B'
     },
     paginationStyle: {
-        top: -180
+        top: -h/3
     },
     images: {
         flex: 1,

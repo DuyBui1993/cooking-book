@@ -1,13 +1,10 @@
-
-const React = require('react-native');
-
-const { StyleSheet } = React;
-
+import {StyleSheet, Dimensions} from 'react-native';
+const {height: h, width: w} = Dimensions.get('window');
 module.exports = StyleSheet.create({
   container: {
-    backgroundColor: '#FBFAFA',
+    backgroundColor: '#F4E8D1',
   },
-  row: {
+  ite: {
     flex: 1,
     alignItems: 'center',
   },
@@ -19,4 +16,35 @@ module.exports = StyleSheet.create({
   mt: {
     marginTop: 18,
   },
+  colImage: {
+    flex: 1,
+    width: w/2,
+    height: w/2,
+    resizeMode: 'stretch'
+  },
+  col: {
+    marginBottom: 20,
+    marginHorizontal: 10,
+    backgroundColor: '#fff',
+  },
+  'col:last-child': {
+    marginBottom: 0
+  },
+  caption: {
+    height: 24
+  },
+  title: {
+    margin: 0,
+    fontWeight: 'bold',
+    paddingLeft: 10,
+    fontSize: 10,
+    lineHeight: 20
+  },
+  views: {
+    textAlign: 'right',
+    paddingRight: 5,
+    fontSize: 8,
+    lineHeight: 20,
+    color: '#ccc'
+  }
 });
