@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { Image } from 'react-native';
 import images from '../../config/images';

@@ -1,17 +1,16 @@
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import { openDrawer } from '../../actions/drawer';
-import { setIndex } from '../../actions/list';
+import { selectItem } from './homeDuck';
 import Home from './home';
 
-const { reset, pushRoute } = actions;
+const { pushRoute } = actions;
 
 function bindAction(dispatch) {
   return {
-    setIndex: index => dispatch(setIndex(index)),
+    selectItem: index => dispatch(selectItem(index)),
     openDrawer: () => dispatch(openDrawer()),
     pushRoute: (route, key) => dispatch(pushRoute(route, key)),
-    reset: key => dispatch(reset([{ key: 'login' }], key, 0)),
   };
 }
 

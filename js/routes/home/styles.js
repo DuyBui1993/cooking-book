@@ -18,8 +18,8 @@ module.exports = StyleSheet.create({
   },
   colImage: {
     flex: 1,
-    width: w/2,
-    height: w/2,
+    width: w/2 - 20,
+    height: w/2 - 20,
     resizeMode: 'stretch'
   },
   col: {

@@ -5,14 +5,11 @@ import { Grid, Row, Col } from 'react-native-easy-grid';
 import myTheme from '../../themes/base-theme';
 import styles from './styles';
 
-
-
 class Home extends Component {
-
   static propTypes = {
     name: React.PropTypes.string,
     list: React.PropTypes.arrayOf(React.PropTypes.array),
-    setIndex: React.PropTypes.func,
+    selectItem: React.PropTypes.func,
     openDrawer: React.PropTypes.func,
     pushRoute: React.PropTypes.func,
     reset: React.PropTypes.func,
@@ -22,7 +19,7 @@ class Home extends Component {
   }
 
   pushRoute(route, index) {
-    this.props.setIndex(index);
+    this.props.selectItem(index);
     this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
   }
 
@@ -46,7 +43,8 @@ class Home extends Component {
                   {row.map((col, j) => {
                     return (
                       <Col key={j} style={styles.col}>
-                        <TouchableOpacity style={styles.item}>
+                        <TouchableOpacity style={styles.item}
+                          onPress={() => this.pushRoute('foodDetail', col.id)}>
                           <Image style={styles.colImage} source={{uri: col.imageUrl}}></Image>
                           <Row style={styles.caption}>
                             <Col size={2}><Text style={styles.title}>{col.title}</Text></Col>
@@ -65,5 +63,4 @@ class Home extends Component {
     );
   }
 }
-
 export default Home;

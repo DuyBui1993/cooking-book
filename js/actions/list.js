@@ -1,11 +1,6 @@
-
 import type { Action } from './types';
+export const SELECT_ITEM = 'SELECT_ITEM';
 
-export const SET_INDEX = 'SET_INDEX';
-
-export function setIndex(index:number):Action {
-  return {
-    type: SET_INDEX,
-    payload: index,
-  };
+export function selectItem(index : number) : Action {
+  return {type: SELECT_ITEM, payload: index};
 }

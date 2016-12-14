@@ -1,10 +1,21 @@
 import type { Action } from '../actions/types';
-import { SELECT_ITEM } from '../actions/list';
 
-export type State = {
-    list: string
+// Constants
+export const SELECT_ITEM = 'SELECT_ITEM';
+
+// Actions
+export function selectItem(index : number) : Action {
+  return {type: SELECT_ITEM, payload: index};
 }
 
+// Action Handlers
+const ACTION_HANDLERS = {
+  [SELECT_ITEM]: (state, action) => {
+    return {...state, selectedItemId: action.payload};
+  }
+}
+
+// Reducer
 const initialState = {
   list: [
     [
@@ -29,12 +40,7 @@ const initialState = {
   selectedItemId: undefined,
 };
 
-export default function (state:State = initialState, action:Action): State {
-  if (action.type === SELECT_ITEM) {
-    return {
-      ...state,
-      selectedItemId: action.payload,
-    };
-  }
-  return state;
+export default function homeReducer(state = initialState, action) {
+  const handler = ACTION_HANDLERS[action.type]
+  return handler ? handler(state, action) : state
 }

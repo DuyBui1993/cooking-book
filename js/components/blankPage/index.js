@@ -7,9 +7,7 @@ import { Container, Header, Title, Content, Text, Button, Icon } from 'native-ba
 import { openDrawer } from '../../actions/drawer';
 import styles from './styles';
 
-const {
-  popRoute,
-} = actions;
+const { popRoute } = actions;
 
 class BlankPage extends Component {
 
@@ -65,7 +63,7 @@ function bindAction(dispatch) {
 const mapStateToProps = state => ({
   navigation: state.cardNavigation,
   name: state.user.name,
-  index: state.list.selectedIndex,
+  index: state.list.selectedItemId,
   list: state.list.list,
 });
 

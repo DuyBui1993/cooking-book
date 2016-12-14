@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { BackAndroid, StatusBar, NavigationExperimental } from 'react-native';
 import { connect } from 'react-redux';
@@ -6,14 +5,15 @@ import { Drawer } from 'native-base';
 import { actions } from 'react-native-navigation-redux-helpers';
 
 import { closeDrawer } from './actions/drawer';
+import { statusBarColor } from './themes/base-theme';
 
-import Login from './components/login/';
-import Introduction from './components/introduction';
-import Home from './components/home/';
 import BlankPage from './components/blankPage';
 import SplashPage from './components/splashscreen/';
 import SideBar from './components/sideBar';
-import { statusBarColor } from './themes/base-theme';
+
+import Introduction from './routes/introduction';
+import Home from './routes/home/';
+import FoodDetail from './routes/foodDetail';
 
 const {
   popRoute,
@@ -85,6 +85,8 @@ class AppNavigator extends Component {
       }
       case 'home':
         return <Home />;
+      case 'foodDetail':
+        return <FoodDetail />;
       case 'blankPage':
         return <BlankPage />;
       default :
